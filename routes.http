@@ -1,0 +1,25 @@
+# @name get-prompts
+GET http://localhost:3333/prompts
+
+###
+
+# @name upload
+POST http://localhost:3333/videos
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gw
+
+----WebKitFormBoundary7MA4YWxkTrZu0gw
+Content-Disposition: form-data; name="file"; filename="example.mp3"
+Content-Type: audio/mpeg
+
+< ./example.mp3
+----WebKitFormBoundary7MA4YWxkTrZu0gw
+
+###
+
+# @name create-transcription
+POST http://localhost:3333/videos/39d75124-07cd-4314-b8c5-e72a5e71db38/transcription
+Content-Type: application/json
+
+{
+  "prompt": "lobo, grande"
+}
